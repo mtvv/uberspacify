@@ -1,5 +1,5 @@
 require 'capistrano_colors'
-#require 'rvm/capistrano'
+# require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 def abort_red(msg)
@@ -56,7 +56,6 @@ Capistrano::Configuration.instance.load do
 export HOME=#{fetch :home}
 source $HOME/.bash_profile
 cd #{fetch :deploy_to}/current
-# rvm use #{fetch :rvm_ruby_string}
 exec bundle exec passenger start -p #{fetch :passenger_port} -e production 2>&1
       EOF
 
